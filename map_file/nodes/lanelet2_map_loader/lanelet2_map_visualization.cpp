@@ -94,6 +94,9 @@ void binMapCallback(autoware_lanelet2_msgs::MapBin msg)
   ROS_INFO("Visualizing lanelet2 map with %lu lanelets, %lu stop lines, and %lu traffic lights",
     all_lanelets.size(), tl_stop_lines.size() + ss_stop_lines.size(), aw_tl_reg_elems.size());
 
+  for(int i = 0;i < (int)map_marker_array.markers.size();i++)
+    map_marker_array.markers[i].header.frame_id = "map_zala_0";
+
   g_map_pub.publish(map_marker_array);
 }
 

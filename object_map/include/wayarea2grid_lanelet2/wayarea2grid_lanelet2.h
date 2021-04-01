@@ -44,7 +44,7 @@
 
 namespace object_map
 {
-constexpr int occupancy_road = 128;
+constexpr int occupancy_road = 0;
 constexpr int occupancy_no_road = 255;
 
 class WayareaToGridLanelet2

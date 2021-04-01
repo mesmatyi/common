@@ -370,7 +370,7 @@ void publish_pcd(sensor_msgs::PointCloud2 pcd, const int* errp = NULL)
 {
   if (pcd.width != 0)
   {
-    pcd.header.frame_id = "map";
+    pcd.header.frame_id = "map_zala_0";
     pcd_pub.publish(pcd);
 
     if (errp == NULL || *errp == 0)
