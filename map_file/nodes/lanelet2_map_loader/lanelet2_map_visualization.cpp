@@ -31,8 +31,7 @@
 #include <lanelet2_extension/regulatory_elements/autoware_traffic_light.h>
 
 #include <vector>
-
-static bool g_viz_lanelets_centerline = true;
+static bool g_viz_lanelets_centerline = false;
 static ros::Publisher g_map_pub;
 
 void insertMarkerArray(visualization_msgs::MarkerArray* a1, const visualization_msgs::MarkerArray& a2)
@@ -95,7 +94,7 @@ void binMapCallback(autoware_lanelet2_msgs::MapBin msg)
     all_lanelets.size(), tl_stop_lines.size() + ss_stop_lines.size(), aw_tl_reg_elems.size());
 
   for(int i = 0;i < (int)map_marker_array.markers.size();i++)
-    map_marker_array.markers[i].header.frame_id = "map_zala_0";
+    map_marker_array.markers[i].header.frame_id = msg.header.frame_id;
 
   g_map_pub.publish(map_marker_array);
 }

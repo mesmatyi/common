@@ -41,6 +41,12 @@ int main(int argc, char** argv)
 
   std::string lanelet2_path;
   pnh.param<std::string>("lanelet2_path", lanelet2_path, "");
+  std::string lanelet_frame_id = "map_zala_0";
+
+  if(ros::param::get("/lanelet2_frame_id", lanelet_frame_id))
+    ROS_INFO("Retrived lanelet2_frame_id: %s",lanelet_frame_id.c_str());
+  else
+    ROS_WARN("For lanelet2_frame_id using %s as in default",lanelet_frame_id.c_str());
 
   std::string lanelet2_file_path;
   boost::filesystem::path path(lanelet2_path);
@@ -107,7 +113,7 @@ int main(int argc, char** argv)
   ros::Publisher map_bin_pub = nh.advertise<autoware_lanelet2_msgs::MapBin>("/lanelet_map_bin", 1, true);
   autoware_lanelet2_msgs::MapBin map_bin_msg;
   map_bin_msg.header.stamp = ros::Time::now();
-  map_bin_msg.header.frame_id = "map_zala_0";
+  map_bin_msg.header.frame_id = lanelet_frame_id;
   map_bin_msg.format_version = format_version;
   map_bin_msg.map_version = map_version;
   lanelet::utils::conversion::toBinMsg(map, &map_bin_msg);
