@@ -68,7 +68,7 @@ void binMapCallback(autoware_lanelet2_msgs::MapBin msg)
   std_msgs::ColorRGBA cl_road, cl_cross, cl_ll_borders, cl_tl_stoplines, cl_ss_stoplines, cl_trafficlights;
   setColor(&cl_road, 0.2, 0.7, 0.7, 0.3);
   setColor(&cl_cross, 0.2, 0.7, 0.2, 0.3);
-  setColor(&cl_ll_borders, 1.0, 1.0, 1.0, 1.0);
+  setColor(&cl_ll_borders, 0.5, 0.5, 0.5, 1.0);
   setColor(&cl_tl_stoplines, 1.0, 0.5, 0.0, 0.5);
   setColor(&cl_ss_stoplines, 1.0, 0.0, 0.0, 0.5);
   setColor(&cl_trafficlights, 0.7, 0.7, 0.7, 0.8);
