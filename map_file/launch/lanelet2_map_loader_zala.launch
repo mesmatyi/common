@@ -1,0 +1,8 @@
+<launch>
+  <arg name="file_name" default='/home/$(env USER)/lanelet2_maps/ZalaZone/ZalaZone_Uni_track_full_early.osm'/>
+  <node pkg="map_file" type="lanelet2_map_loader" name="lanelet2_map_loader" output="screen">
+    <param name="lanelet2_path" value="$(arg file_name)" />
+  </node>
+  <node pkg="map_file" type="lanelet2_map_visualization" name="lanelet2_map_visualization" output="screen" />
+</launch>
+
